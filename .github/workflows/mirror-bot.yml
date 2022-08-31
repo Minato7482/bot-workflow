@@ -5,7 +5,7 @@ on:
     branches: [ main ]
     paths-ignore: 'README.md'
   workflow_dispatch:
-   
+
 env:
   # Change these values if you have forked it for your own works
   GitHubMail: ${{ secrets.GH_MAIL }}
@@ -31,7 +31,7 @@ jobs:
 
       - name: Clone The Secret Mirror Repository
         run: |
-          git clone https://${{ secrets.GH_TOKEN }}@github.com/superioros-bot/${{ secrets.MIRROR_REPOSLUG }} source
+          git clone https://${{ secrets.GH_TOKEN }}@github.com/shekhawat2/${{ secrets.MIRROR_REPOSLUG }} source
 
       - name: Compile The Mirroring Docker Container
         run: |
@@ -57,4 +57,3 @@ jobs:
           git add looper.txt
           git commit -m "Workflow : Loop at $(TZ='Asia/Kolkata' date +"%b %e, %l:%M %p")"
           git push -q https://${{ secrets.GH_TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:main
-
